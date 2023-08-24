@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "aibot-chat-with-csv"
+version = "0.1.0"
+description = "LLama 2, LangChain and Streamlit - Chat about your CSV"
+authors = ["alex00pep <alexmtnezf@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+huggingface-hub = "^0.16.4"
+python-dotenv = "^1.0.0"
+langchain = "^0.0.271"
+streamlit = "^1.25.0"
+streamlit-extras = "^0.3.0"
+matplotlib = "^3.7.2"
+tokenizers = "^0.13.3"
+accelerate = "^0.22.0"
+bitsandbytes = "^0.41.1"
+transformers = "^4.32.0"
+sentence-transformers = "^2.2.2"
+chromadb = "^0.4.7"
+bs4 = "^0.0.1"
+pdfminer-six = "^20221105"
+einops = "^0.6.1"
+torch = "^2.0.1"
+llama-cpp-python = "^0.1.78"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

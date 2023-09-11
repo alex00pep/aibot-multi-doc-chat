@@ -1,5 +1,6 @@
 import os
 import logging
+from langchain import HuggingFaceHub
 import torch
 from huggingface_hub import hf_hub_download
 from langchain.llms import HuggingFacePipeline, LlamaCpp
@@ -23,6 +24,19 @@ from constants import (
     MODEL_BASENAME,
     ROOT_DIRECTORY,
 )
+
+
+def load_remote_hosted_model(repo_id="tiiuae/falcon-7b-instruct"):
+    """
+    Loads a remote LLM via its API.
+    NOTICE: your data leaves your computer, because your model has to know your source documents
+    in order to make semantic search and inference.
+    """
+    # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other model options
+    llm = HuggingFaceHub(
+        repo_id=repo_id, model_kwargs={"temperature": 0.1, "max_new_tokens": 500}
+    )
+    return llm
 
 
 def load_model(device_type, model_id, model_basename=None):
@@ -52,7 +66,7 @@ def load_model(device_type, model_id, model_basename=None):
             model_path = hf_hub_download(
                 repo_id=model_id,
                 filename=model_basename,
-                cache_dir=os.path.join(ROOT_DIRECTORY, "models"),
+                local_dir=os.path.join(ROOT_DIRECTORY, "models"),
             )
             max_ctx_size = 2048
             kwargs = {

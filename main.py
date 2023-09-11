@@ -3,8 +3,10 @@ import time
 from uuid import uuid4
 import uuid
 import torch
+import chromadb
 import subprocess
 import streamlit as st
+from dotenv import load_dotenv
 from langchain.vectorstores import Chroma
 from constants import (
     CHROMA_SETTINGS,
@@ -31,7 +33,9 @@ from ingest import (
     load_vector_db,
     parse_split_text,
 )
-from model_loader import load_model
+from model_loader import load_model, load_remote_hosted_model
+
+load_dotenv()
 
 
 def model_memory():
@@ -90,10 +94,6 @@ if "EMBEDDINGS" not in st.session_state:
     )
     st.session_state.EMBEDDINGS = EMBEDDINGS
 
-
-import chromadb
-
-
 if "DB" not in st.session_state:
     DB = Chroma(
         persist_directory=PERSIST_DIRECTORY,
@@ -107,9 +107,10 @@ if "RETRIEVER" not in st.session_state:
     st.session_state.RETRIEVER = RETRIEVER
 
 if "LLM" not in st.session_state:
-    LLM = load_model(
-        device_type=DEVICE_TYPE, model_id=MODEL_ID, model_basename=MODEL_BASENAME
-    )
+    # LLM = load_model(
+    #     device_type=DEVICE_TYPE, model_id=MODEL_ID, model_basename=MODEL_BASENAME
+    # )
+    LLM = load_remote_hosted_model(repo_id=MODEL_ID)
     st.session_state["LLM"] = LLM
 
 
@@ -126,7 +127,7 @@ if "QA" not in st.session_state:
 
     st.session_state["QA"] = QA
 
-st.header("PDF Analyzer App 💬")
+st.header("Multi-document Analyzer 💬")
 new_files = st.file_uploader(
     "Upload your Word/PDF/txt/Excel/Markdown files",
     accept_multiple_files=True,

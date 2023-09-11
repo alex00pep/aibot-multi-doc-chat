@@ -3415,14 +3415,14 @@ full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyam
 
 [[package]]
 name = "streamlit"
-version = "1.25.0"
+version = "1.26.0"
 description = "A faster way to build and share data apps"
 category = "main"
 optional = false
 python-versions = ">=3.8, !=3.9.7"
 files = [
-    {file = "streamlit-1.25.0-py2.py3-none-any.whl", hash = "sha256:3c561dca1b5430e73b7f2d66bff1d26103936bb4223912ab563ffee881fccc30"},
-    {file = "streamlit-1.25.0.tar.gz", hash = "sha256:8a7c93bee8703869045804afe22e9373c4e974fdb2a3e9abe3b027df3de03119"},
+    {file = "streamlit-1.26.0-py2.py3-none-any.whl", hash = "sha256:2bfdac041816e2e1ba27f061d40112afe61e0d4e72d25f354b38ba81107b4cb3"},
+    {file = "streamlit-1.26.0.tar.gz", hash = "sha256:25475fb15a3cc9fb184945f3fc936f011998bd8386e0c892febe14c9625bf47a"},
 ]
 
 [package.dependencies]
@@ -4334,6 +4334,21 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [[package]]
+name = "youtube-transcript-api"
+version = "0.6.1"
+description = "This is an python API which allows you to get the transcripts/subtitles for a given YouTube video. It also works for automatically generated subtitles, supports translating subtitles and it does not require a headless browser, like other selenium based solutions do!"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "youtube_transcript_api-0.6.1-py3-none-any.whl", hash = "sha256:f0ce9c8475953c108d3cbfda0426dc35f195638bf841837968530d300c6c7ec5"},
+    {file = "youtube_transcript_api-0.6.1.tar.gz", hash = "sha256:bc148ea687af7d8e80853d4cd005c7d28859106a5eb5501722fd3dac9f9b68be"},
+]
+
+[package.dependencies]
+requests = "*"
+
+[[package]]
 name = "zipp"
 version = "3.16.2"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -4352,4 +4367,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "87d05a9376eef2370c8688c57bc9f35e01a09c44532e3bcfec888abcce43e536"
+content-hash = "876f63dea2f4b99ede17c2a50fc65f540eef371a915f074222e4e7e8ae1d76a4"

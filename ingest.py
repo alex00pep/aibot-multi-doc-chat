@@ -1,13 +1,13 @@
-import logging
 import os
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
-from typing import List
-from uuid import uuid4
 import uuid
-
 import chromadb
 import click
 import torch
+import logging
+
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+from typing import List
+
 from langchain.docstore.document import Document
 from langchain.embeddings import (
     HuggingFaceInstructEmbeddings,
@@ -119,6 +119,22 @@ def add_document_to_db():
     client = chromadb.PersistentClient(path=PERSIST_DIRECTORY)
 
 
+from langchain.document_loaders import YoutubeLoader
+
+
+# --------------------------------------------------------------
+# Load a video transcript from YouTube
+# --------------------------------------------------------------
+def load_transcript_from_yt() -> List[Document]:
+    video_url = "https://www.youtube.com/watch?v=riXpu1tHzl0"
+    loader = YoutubeLoader.from_youtube_url(video_url)
+    transcript = loader.load()[0]
+
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=3000)
+    docs = text_splitter.split_documents(transcript)
+    return docs
+
+
 @click.command()
 @click.option(
     "--device_type",
@@ -148,7 +164,7 @@ def add_document_to_db():
     ),
     help="Device to run on. (Default is cuda)",
 )
-def load_vector_db(documents: List[Document], embeddings, ids: List[str]):
+def load_vector_db(documents: List[Document], embeddings, ids: List[str] = []):
     """ """
     db = Chroma.from_documents(
         documents=documents,

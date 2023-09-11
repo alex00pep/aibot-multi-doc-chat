@@ -1,4 +1,18 @@
-# Multi-document Analyzer - Chat with a bot about your files
+# Multi-document Analyzer - Chat with a bot about your files in private
+
+## Overview
+Chat about your docs in private
+Main techonology stack: LLM, HuggingFace, LangChain and Streamlit 
+
+Features:
+1. Upload documents in PDF,CSV,TXT,Excel formats to your knowledge store
+2. Upload transcripts from YT videos to your knowledge store
+3. Uses LLMs to comprehend, summarize, create, and anticipate new material
+
+## Hardware Requirements
+1. Best scenario is to have GPUs, but it also works on CPU (with the expected delay in response)
+2. 16 GB of vRAM or more
+
 
 ## Dependencies install 
 
@@ -7,13 +21,13 @@ poetry install
 ```
 
 ## Run the application
-Udate the file .env with the proper HUGGINGFACE_API_KEY value
+In the root folder add a .env file with the proper HUGGINGFACE_API_KEY and HUGGINGFACEHUB_API_TOKEN variables
 
 ```bash
-streamlit run main.py
+poetry run streamlit run main.py
 ```
 
-The browser instance will be opened with Pandas Dataframe Analyzer app running
+A browser instance will be opened to talk to chatbot about your Documents
 
 ## Application Usage
-Write different questions to PandasAI to analyze dataset imported about USA constitution
+Write different questions about USA constitution

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "aibot-chat-with-csv"
 version = "0.1.0"
-description = "LLama 2, LangChain and Streamlit - Chat about your CSV"
+description = "LLama CPP, HuggingFace, LangChain and Streamlit - Chat about your docs"
 authors = ["alex00pep <alexmtnezf@gmail.com>"]
 license = "MIT"
 readme = "README.md"
@@ -26,6 +26,7 @@ pdfminer-six = "^20221105"
 einops = "^0.6.1"
 torch = "^2.0.1"
 llama-cpp-python = "^0.1.78"
+youtube-transcript-api = "^0.6.1"
 
 
 [build-system]

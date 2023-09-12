@@ -92,6 +92,9 @@ if "EMBEDDINGS" not in st.session_state:
     EMBEDDINGS = SentenceTransformerEmbeddings(
         model_name=EMBEDDING_MODEL_NAME, model_kwargs={"device": DEVICE_TYPE}
     )
+    # EMBEDDINGS = HuggingFaceInstructEmbeddings(
+    #     model_name=EMBEDDING_MODEL_NAME, model_kwargs={"device": DEVICE_TYPE}
+    # )
     st.session_state.EMBEDDINGS = EMBEDDINGS
 
 if "DB" not in st.session_state:
@@ -107,10 +110,10 @@ if "RETRIEVER" not in st.session_state:
     st.session_state.RETRIEVER = RETRIEVER
 
 if "LLM" not in st.session_state:
-    # LLM = load_model(
-    #     device_type=DEVICE_TYPE, model_id=MODEL_ID, model_basename=MODEL_BASENAME
-    # )
-    LLM = load_remote_hosted_model(repo_id=MODEL_ID)
+    LLM = load_model(
+        device_type=DEVICE_TYPE, model_id=MODEL_ID, model_basename=MODEL_BASENAME
+    )
+    # LLM = load_remote_hosted_model(repo_id=MODEL_ID)
     st.session_state["LLM"] = LLM
 
 

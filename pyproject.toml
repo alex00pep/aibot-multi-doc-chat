@@ -27,6 +27,9 @@ einops = "^0.6.1"
 torch = "^2.0.1"
 llama-cpp-python = "^0.1.78"
 youtube-transcript-api = "^0.6.1"
+instructorembedding = "^1.0.1"
+unstructured = "^0.10.14"
+docx2txt = "^0.8"
 
 
 [build-system]

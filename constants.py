@@ -42,19 +42,20 @@ DOCUMENT_MAP = {
     ".doc": Docx2txtLoader,
 }
 
-# Default Instructor Model
+# Embedding model: Default Instructor Model
 # EMBEDDING_MODEL_NAME = "hkunlp/instructor-large"
 # You can also choose a smaller model, don't forget to change HuggingFaceInstructEmbeddings
 # to HuggingFaceEmbeddings in both ingest.py and run_localGPT.py
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 # EMBEDDING_MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
-# Select the Model ID and model_basename
+
+
+# LLM selection: Select the Model ID and model_basename
 # load the LLM for generating Natural Language responses
 
-MODEL_ID = "TheBloke/Llama-2-13B-chat-GGML"
-
-# MODEL_ID = "TheBloke/Llama-2-7B-Chat-GGML"
-# MODEL_BASENAME = "llama-2-7b-chat.ggmlv3.q4_0.bin"
+# MODEL_ID = "TheBloke/Llama-2-13B-chat-GGML"
+MODEL_ID = "TheBloke/Llama-2-7B-Chat-GGML"
+MODEL_BASENAME = "llama-2-7b-chat.ggmlv3.q4_0.bin"
 
 # for HF models
 # MODEL_ID = "TheBloke/vicuna-7B-1.1-HF"
